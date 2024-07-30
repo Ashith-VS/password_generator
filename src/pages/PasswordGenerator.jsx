@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import icon from "../assets/images/clipboard_icon.png"
 
 const PasswordGenerator = () => {
     const [password, setPassword] = useState('');
@@ -59,6 +61,9 @@ const PasswordGenerator = () => {
             <h2>Password Generator</h2>
             <div className="password-output">
              <input type="text" placeholder="Generated password" value={password} disabled />
+             <CopyToClipboard  text={password}>
+             <button><img src={icon} alt='' style={{width:'30px',height:'30px',objectFit:'cover'}}/></button>
+             </CopyToClipboard>
              <button onClick={generatePassword}>Generate Password</button>
             </div>
             <div className="strength-indicator">
